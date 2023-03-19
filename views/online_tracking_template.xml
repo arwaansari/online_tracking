@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <template id="online_tracking_form">
+       <t t-call="website.layout">
+           <div id="website" class="oe_structure oe_empty website1">
+               <section class="vh-100 gradient-custom" data-vcss="001" data-snippet="s_website_form">
+                   <div style="align-items: center; justify-content:center" class="container py-5 h-100">
+                       <form method="post" enctype="multipart/form-data" class="o_mark_required" data-mark="*" data-model_name="" data-success-page="">
+                           <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                           <h1 class="fw-bold mb-2 text-uppercase" style="text-align: center;">ONLINE TRACKING</h1>
+                           <br></br>
+                           <div style="margin-top:-22px;" class="row d-flex justify-content-center align-items-center h-100">
+                                   <div style="width: 700px;" class="col-12 col-md-8 col-lg-6 col-xl-5">
+                                       <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="studio1">
+                                           <span class="s_website_form_label_content">Transfer</span>
+                                       </label>
+                                       <div class="col-sm" id="transfer1">
+<!--                                           <input type="search" id="myInput" name="search" data-oe-model="ir.ui.view"-->
+<!--                                                  data-oe-id="576" data-oe-field="arch"-->
+<!--                                                  class="search-query form-control oe_search_box border-0 text-bg-light"-->
+<!--                                                  placeholder="Search..." value="" data-search-type="transfers" data-limit="5"-->
+<!--                                                  data-display-image="true" data-display-description="true" data-display-extra-link="true"-->
+<!--                                                  data-display-detail="true" data-order-by="name asc" autocomplete="off"/>-->
+                                           <select class="advanced-select" id="transfer" name="transfer_id" t-attf-class="form-control s_website_form_input" required="1">
+                                               <option t-att-value=""></option>
+                                               <t t-foreach="transfers or []" t-as="transfer">
+                                                   <option t-att-value="transfer.id">
+                                                       <t t-esc="transfer.name" />
+                                                   </option>
+                                               </t>
+                                           </select>
+                                       </div>
+                               </div>
+                               <br></br>
+                               <div class="form-group col-6 s_website_form_submit" data-name="Submit Button">
+                                   <div class="s_website_form_label"/>
+                                   <button id="btn_track" style="width: 400px;margin-left: 112px;background-color:#71639e;margin-top: 20px;" class="btn btn-outline-light btn-lg px-5" type="submit">TRACK</button>
+                               </div>
+                               <br></br>
+                               <br></br>
+                                  <div style="width: 700px;" class="col-12 col-md-8 col-lg-6 col-xl-5">
+                                       <label id="label_from" class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="studio1">
+                                           <span class="s_website_form_label_content">From Location</span>
+                                       </label>
+                                       <div class="col-sm">
+                                       <input id="from_location" type="text" class="form-control s_website_form_input" name="from_location" required="1"/>
+                                       </div>
+                                   </div>
+                               <br></br>
+                               <br></br>
+                                   <div style="width: 700px;" class="col-12 col-md-8 col-lg-6 col-xl-5">
+                                       <label id="label_to" class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="studio1">
+                                           <span class="s_website_form_label_content">To Location</span>
+                                       </label>
+                                       <div class="col-sm">
+                                       <input id="to_location" type="text" class="form-control s_website_form_input" name="to_location" required="1"/>
+                                       </div>
+                                   </div>
+                               <br></br>
+                               <br></br>
+                               <br></br>
+                           </div>
+                       </form>
+                   </div>
+               </section>
+           </div>
+       </t>
+   </template>
+</odoo>
